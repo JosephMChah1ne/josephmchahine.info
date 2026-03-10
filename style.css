@@ -1,46 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+  min-height: 100vh;
   font-family: Arial, sans-serif;
-  background: #020024;
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+  color: #ffffff;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.12), transparent 25%),
+    linear-gradient(135deg, #0f172a, #1e3a8a, #0f766e);
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
 }
 
 .container {
+  width: 100%;
   max-width: 900px;
-  margin: 80px auto;
-  padding: 24px;
+  padding: 48px 32px;
   text-align: center;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+  margin: 0 0 12px;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .subtitle {
-  font-size: 20px;
-  color: #444;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .intro {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 30px;
+  max-width: 700px;
+  margin: 0 auto 34px;
+  font-size: 1.06rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
 }
 
 .buttons a {
   display: inline-block;
-  margin: 10px;
-  padding: 14px 22px;
+  padding: 14px 24px;
+  border-radius: 16px;
   text-decoration: none;
-  border: 1px solid #111;
-  border-radius: 8px;
-  color: #111;
-  background: white;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
 }
 
 .buttons a:hover {
-  background: #111;
-  color: white;
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.buttons a:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 34px 22px;
+    border-radius: 22px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons a {
+    width: 100%;
+  }
 }
